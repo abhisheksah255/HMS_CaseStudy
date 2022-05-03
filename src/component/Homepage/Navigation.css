@@ -1,0 +1,36 @@
+.navbar-brand{
+font-weight:bold;
+font-style: italic;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.section{
+    padding-top: 40px;
+    padding-bottom:40px;
+}
+.main-heading{
+    color: rgb(10, 146, 109);
+    font-size:30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style:italic;
+}
+.underline{
+    height: 10px;
+    width: 5cm;
+    background-color:rgb(13, 179, 65);
+    margin-top:10px;
+    margin-bottom:10px;
+}
+p{
+    font-size:14px;
+    color:#262626;
+}
+.footer a{
+    color:white;
+    text-decoration:none;
+}
+.footer a:hover{
+    color:gray;
+    text-decoration:underline !important;
+}
