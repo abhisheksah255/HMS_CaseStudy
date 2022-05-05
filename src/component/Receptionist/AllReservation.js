@@ -28,6 +28,10 @@ export default function AllReservations() {
             console.log(error);
         })
     }
+    const confirmReservation=(reservationDetails)=>{
+        console.log(reservationDetails);
+    }
+    
     return (
         <>
       
@@ -60,9 +64,13 @@ export default function AllReservations() {
                                     <td>{reservationDetails.numOfGuest}</td>
                                     <td>{reservationDetails.totalPrice}</td>
                                     <td>
-                                        <Button variant='outlined' color='secondary' 
+                                        <Button variant='outlined' color='secondary' className="me-2"
                                         onClick={()=>deleteReservation(reservationDetails.reservationId)}>
                                         Delete</Button>
+                                    
+                                        <Button variant='outlined' color='success' 
+                                        onClick={()=>confirmReservation(reservationDetails)}>
+                                        Confim &amp; Pay</Button>
                                     </td>
                                 </tr>
                         )

@@ -4,8 +4,12 @@ import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import InventoryService from '../../services/InventoryService'
 import { Link, useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+
+toast.configure()
 const useStyles=makeStyles({
     id:{
         width:1000,
@@ -35,6 +39,7 @@ export default function AddInventory() {
     const inventory={inventoryId,inventoryType,inventoryName,inventoryStock}
     InventoryService.addInventory(inventory).then((response)=>{
         console.log(response.data)
+        toast('Inventory Added successfully');
         navigate('/manager/AllInventory')
     }).catch(error=>{
         console.log(error)

@@ -1,12 +1,17 @@
 import axios from "axios";
 import React, { useState } from "react";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
+
+toast.configure()
 function Login() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [showAlert, setShowAlert] = useState(false);
 
   const handleLogin = (e) => {
+    toast('You have successfully Login to Our HMS...');
     e.preventDefault();
     axios
       .post("http://localhost:8090/authenticate", {
@@ -15,6 +20,7 @@ function Login() {
       })
       .then((res) => {
         localStorage.setItem("token", res.data);
+       
         window.location.href = "/";
       })
       .catch((err) => {
@@ -22,8 +28,11 @@ function Login() {
       });
   };
   return (
+<div className="gologin">
+    <div className="login">
     <div className="container">
       <h2 className="text-center">Login</h2>
+      <hr />
       <form onSubmit={handleLogin}>
         <div class="mb-3">
           <label class="form-label">Username</label>
@@ -55,7 +64,10 @@ function Login() {
         </div>
       )}
     </div>
+    </div>
+    </div>
   );
+  
 }
 
 export default Login;

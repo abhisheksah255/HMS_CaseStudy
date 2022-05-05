@@ -4,13 +4,15 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Profile from "./Profile";
 import Contact from "./Contact";
-import Login from "./Login";
+import Login from '../Login';
 import About from "./About";
 import ERROR from "./Error";
 import SignUp from "./SignUp";
 import Navbar from "react-bootstrap/Navbar";
 import ReservationComponent from "../ReservationComponent";
 import GuestComponent from "../GuestComponent";
+import logo from '../Image/logohotel.jpg'
+
 
 const Navigation = () => {
   const isAuthenticated = true ? localStorage.getItem("token") !== null : false;
@@ -27,7 +29,8 @@ const Navigation = () => {
 
         <nav class="navbar fix-top navbar-expand-lg navbar-dark bg-dark shadow">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+
+            <a class="navbar-brand" img src={logo}>
               Hotel Paradise{" "}
             </a>
             <button
@@ -66,29 +69,7 @@ const Navigation = () => {
           </div>
         </nav>
 
-        {/* <Navbar bg="dark" variant="dark">
-          <nav className='nav-button'>
-            <Link className='btn btn-lg btn-primary'  to='/'>HOME</Link>
-            <Link className='btn btn-lg btn-primary' to='/about'>ABOUT</Link>
-            <Link className='btn btn-lg btn-primary' to='/profile'>PROFILE</Link>
-            <Link  className='btn btn-lg btn-primary' to='/contact'>CONTACT</Link>
-            <Link  className='btn btn-lg btn-primary' to='/login'>LOGIN</Link>
-            </nav>
-  </Navbar> */}
-
-        {/* <Routes >
-            <Route path='/' element={<Home/>} />
-            <Route path='/login' element={<Login/>} />
-            <Route path='/profile' element={<Profile/>} />
-            <Route path='/contact' element={<Contact/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/signup' element={<SignUp/>} />
-            <Route path='/reservation' element={<ReservationComponent/>} />
-            <Route path='/guest' element={<GuestComponent/>} />
-            <Route path='*' element={<ERROR/>} />
-  
-          </Routes>
-        </Router> */}
+        
       </div>
     );
   } else {

@@ -5,14 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+//this is for fontawsome
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import {BrowserRouter} from 'react-router-dom';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // ReactDOM.render(
   <React.StrictMode>
+    {/* <BrowserRouter> */}
     <App />
-  </React.StrictMode>
- //  document.getElementById('root')
+    {/* </BrowserRouter> */}
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

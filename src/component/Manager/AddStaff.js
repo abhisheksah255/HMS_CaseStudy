@@ -4,8 +4,11 @@ import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import StaffService from '../../services/StaffService'
 import { Link, useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 const useStyles=makeStyles({
     id:{
         width:1000,
@@ -50,6 +53,7 @@ const [employeeSalary,setEmployeeSalary]=useState('')
     const staff={employeeId,employeeName,employeeAddress,employeeEmail,employeeGender,employeePost,employeeSalary}
     StaffService.addStaff(staff).then((response)=>{
         console.log(response.data)
+        toast('Staff Added successfully');
         navigate('/manager/Allstaff')
     }).catch(error=>{
         console.log(error)
@@ -59,10 +63,10 @@ const [employeeSalary,setEmployeeSalary]=useState('')
     return (
         <>
    
-            <div style={{ marginTop: 100, maxWidth: "100%", width: "80%" }} className='container'>
+            <div style={{ marginTop: 100, maxWidth: "100%", width: "80%" }} className='container '>
+            
+            <h1 className='text-center'>Enter Staff Details</h1>
             <br></br><br></br>
-            <h1>Enter Staff Details</h1>
-
 {/* <form action="container">
 
 <div class="mb-3">
@@ -77,56 +81,70 @@ const [employeeSalary,setEmployeeSalary]=useState('')
 
 
 
-<TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.id} value={employeeId} onChange={(e)=>setEmployeeId(e.target.value)}
+<TextField variant="outlined" label="Employee ID" placeholder='Enter a Employee Id' 
+                className={classes.id} 
+                value={employeeId} 
+                onChange={(e)=>setEmployeeId(e.target.value)}
                 error={employeeId === ""}
                 helperText={employeeId === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
             
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.name} value={employeeName} onChange={(e)=>setEmployeeName(e.target.value)}
+            <TextField variant="outlined" label="Name" placeholder='Enter the Employee Name' 
+                className={classes.name}
+                 value={employeeName}
+                  onChange={(e)=>setEmployeeName(e.target.value)}
                 error={employeeName === ""}
-                helperText={employeeName === "" ? "Empty!" : " "}>
+                helperText={employeeName === "" ? "Enter name of the Employee..!" : " "}>
             </TextField>
             <br></br><br></br>
             
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.address} value={employeeAddress} onChange={(e)=>setEmployeeAddress(e.target.value)}
+            <TextField variant="outlined" label="Address" placeholder='Enter the Employee Address' 
+                className={classes.address} 
+                value={employeeAddress} 
+                onChange={(e)=>setEmployeeAddress(e.target.value)}
                 error={employeeAddress === ""}
-                helperText={employeeAddress === "" ? "Empty!" : " "}>
+                helperText={employeeAddress === "" ? "Enter Address....!" : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.email} value={employeeEmail} onChange={(e)=>setEmployeeEmail(e.target.value)}
-                error={employeeEmail === ""}
-                helperText={employeeEmail === "" ? "Empty!" : " "}>
+            <TextField variant="outlined" label="Email" placeholder='Enter the Employee Email' 
+                className={classes.email} 
+                value={employeeEmail}
+                 onChange={(e)=>setEmployeeEmail(e.target.value)}
+                error={employeeEmail ===""}
+                helperText={employeeEmail === "" ? "enter valid email like abhi@gmail.com!" : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.gender} value={employeeGender} onChange={(e)=>setEmployeeGender(e.target.value)}
+            <TextField variant="outlined" label="Gender" placeholder='Enter Employee Gender' 
+                className={classes.gender}
+                 value={employeeGender}
+                  onChange={(e)=>setEmployeeGender(e.target.value)}
                 error={employeeGender === ""}
                 helperText={employeeGender === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.post} value={employeePost} onChange={(e)=>setEmployeePost(e.target.value)}
+            <TextField variant="outlined" label="Post" placeholder='Enter the Employee Post' 
+                className={classes.post}
+                 value={employeePost}
+                  onChange={(e)=>setEmployeePost(e.target.value)}
                 error={employeePost === ""}
                 helperText={employeePost === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.salary} value={employeeSalary} onChange={(e)=>setEmployeeSalary(e.target.value)}
+            <TextField variant="outlined" label="Salary" placeholder='Enter the Employee Salary' 
+                className={classes.salary}
+                 value={employeeSalary}
+                  onChange={(e)=>setEmployeeSalary(e.target.value)}
                 error={employeeSalary === ""}
                 helperText={employeeSalary === "" ? "Empty!" : " "}>
             </TextField>
 
             <br></br><br></br>
-            <Button variant='contained' onClick={saveStaff}>Submit</Button>;
+            <Button variant='contained' onClick={saveStaff}>Submit</Button>
             <Button variant='outlined'><Link to='/manager'>Back</Link></Button>
         </div>
       

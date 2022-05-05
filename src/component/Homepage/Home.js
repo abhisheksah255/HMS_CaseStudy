@@ -6,7 +6,7 @@ import profile1 from "../Image/A12.jpg";
 import profile2 from "../Image/A13.jpg";
 import profile3 from "../Image/owner.jpg";
 import Footer from "../Include/Footer";
-
+import RoomImg from './OurRooms'
 
 
 const Home = () => {
@@ -21,10 +21,16 @@ const Home = () => {
                 <h2 className="main-heading">Our Hotel</h2>
                 <div className="underline mx-auto"></div>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                  aliquid quidem quod, possimus libero similique neque aperiam
-                  est quas iure fugiat optio repudiandae commodi.
+                  Customers want to be treated like human beings. For that to
+                  happen, they need to feel that they're being served by human
+                  beings. When finishing your About page, describe who you are
+                  as a person or a team, and what your personal values are.
+                  What's your company culture like? What bigger picture in life
+                  drives your business? Keep in mind a secondary audience of
+                  your company's About page consists of your future employees.
+                  This is another reason describing your personal values is a
+                  good idea — the key to your job candidates' hearts is to show
+                  them you have one too.
                 </p>
                 <Link to="/about" className="btn btn-warning shadow">
                   Read More
@@ -56,12 +62,7 @@ const Home = () => {
                     <h3>Receptnist Profile</h3>
                     <div className="underline"></div>
 
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
-                    </p>
+                    <p>This is Receptionist Profile</p>
                     <Link to="/profile" className="btn btn-link">
                       Go to profile
                     </Link>
@@ -81,14 +82,11 @@ const Home = () => {
 
                   <div className="card-body">
                     <h3>Manager Profile</h3>
-                    <div className="underline"></div>
+                    <div className="underline">
+                      
+                    </div>
 
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
-                    </p>
+                    <p>This is the Manager Profile</p>
                     <Link to="/profile" className="btn btn-link">
                       Go to profile
                     </Link>
@@ -110,12 +108,7 @@ const Home = () => {
                     <h3>Owner Profile</h3>
                     <div className="underline"></div>
 
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
-                    </p>
+                    <p>This is owner profile</p>
                     <Link to="/profile" className="btn btn-link">
                       Go to profile
                     </Link>
@@ -126,7 +119,8 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <Footer/>
+      <RoomImg/>
+        <Footer />
       </div>
     </div>
   );

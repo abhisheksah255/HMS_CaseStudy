@@ -10,7 +10,7 @@ const Profile = () => {
   let navigate=useNavigate();
 
   return (
-    <div className="">
+    <div className="profile">
 
  {/* this is profile section */}
  <section className="section border-top">
@@ -36,10 +36,7 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                     Receptionist Profile
                     </p>
                     <Link to="/receptionist" className="btn btn-link">
                       Go to profile
@@ -63,10 +60,7 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                     Manager Profile
                     </p>
                     <Link to="/manager" className="btn btn-link">
                       Go to profile
@@ -90,10 +84,7 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                      This is Owner Profile.
                     </p>
                     <Link to="/owner" className="btn btn-link">
                       Go to profile

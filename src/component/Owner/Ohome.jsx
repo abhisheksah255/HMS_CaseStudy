@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import profile1 from "../Image/d3.jpg";
 import profile2 from "../Image/m1.jpg";
 import profile3 from "../Image/re.jpg";
+import { Button } from '@material-ui/core'
+
 
 const Ohome = () => {
   return (
@@ -10,14 +12,14 @@ const Ohome = () => {
 <div className="container">
             <div className="row">
               <div className="col-md-12 mb-4  text-center"></div>  
-                    <h1>this is Owner home page</h1>
+                    <h1 className="text-center">Welcome to Owner Home Page</h1>
                     <div className="underline mx-auto"></div>
 
                     <div className="col-md-4">
                 <div className="card -shadow">
                   <img
                     src={profile1}
-                    className="w-100 border-bottom"
+                    className="border-bottom"
                     alt="profile"
                   />
 
@@ -26,14 +28,11 @@ const Ohome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                      This is the department Service which will be managed by only owner. 
                     </p>
-                    <Link to="/reservation" className="btn btn-link">
-                      reservation
-                    </Link>
+                   <Button variant='contained'> <Link to="/reservation" className="btn btn-link">
+                      Reservation
+                    </Link></Button>
                    
                   </div>
                 </div>
@@ -45,7 +44,7 @@ const Ohome = () => {
                 <div className="card -shadow">
                   <img
                     src={profile2}
-                    className="w-100 border-bottom"
+                    className="border-bottom"
                     alt="profile"
                   />
 
@@ -54,14 +53,11 @@ const Ohome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                This is the manager profile here owner can access all the services of manager
                     </p>
-                    <Link to="/guest" className="btn btn-link">
-                      Guest
-                    </Link>
+                    <Button variant='contained'> <Link to="/manager" className="btn btn-link">
+                      Manager services
+                    </Link></Button>
                   </div>
                 </div>
               </div>
@@ -71,7 +67,7 @@ const Ohome = () => {
                 <div className="card -shadow">
                   <img
                     src={profile3}
-                    className="w-100 border-bottom"
+                    className="border-bottom"
                     alt="profile"
                   />
 
@@ -80,14 +76,11 @@ const Ohome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                   This is thr receptionist profile here owner can also have rights to access the receptionist profile  
                     </p>
-                    <Link to="/room" className="btn btn-link">
-                      Room
-                    </Link>
+                    <Button variant='contained'> <Link to="/receptionist" className="btn btn-link">
+                      Receptionist services
+                    </Link></Button>
                   </div>
                 </div>
               </div>

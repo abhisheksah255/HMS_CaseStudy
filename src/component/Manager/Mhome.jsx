@@ -7,17 +7,17 @@ import profile3 from "../Image/pic4.jpg";
 const Mhome = () => {
   return (
 
-<div className="container">
+<div className="container abhi-img">
             <div className="row">
               <div className="col-md-12 mb-4  text-center"></div>  
-                    <h1>this is Manager home page</h1>
+                    <h1 className="text-center">Welcome to Manager Profile</h1>
                     <div className="underline mx-auto"></div>
 
                     <div className="col-md-4">
                 <div className="card -shadow">
                   <img
                     src={profile1}
-                    className="w-100 border-bottom"
+                    className="w-100 border-bottom "
                     alt="profile"
                   />
 
@@ -26,10 +26,7 @@ const Mhome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                     This is Inventory Service 
                     </p>
                     <div class="d-grid gap-2 col-6 mx-auto">
                     <button className="btn btn-success"><Link to='/manager/addInventory' className="btn btn-link">
@@ -57,10 +54,7 @@ const Mhome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                     This is Staff Service
                     </p>
 
                       <div class="d-grid gap-2 col-6 mx-auto">
@@ -87,10 +81,7 @@ const Mhome = () => {
                     <div className="underline"></div>
 
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Necessitatibus alias numquam, nam quibusdam suscipit nobis
-                      aliquid quidem quod, possimus libero similique neque
-                      aperiam est quas iure fugiat optio repudiandae commodi.
+                      This is room Service
                     </p>
                     <div class="d-grid gap-2 col-6 mx-auto">
                     <button className="btn btn-success"><Link to='/manager/addRoom' className="btn btn-link">

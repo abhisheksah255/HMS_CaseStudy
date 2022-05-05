@@ -4,8 +4,11 @@ import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import ReservationService from '../../services/ReservationService'
 import { Link,useNavigate} from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 const useStyles=makeStyles({
     resid:{
         width:1000,
@@ -33,6 +36,12 @@ export default function AddReservation() {
 
     let navigate=useNavigate();
 
+    const notify = ()=>{
+ 
+        // Calling toast method by passing string
+        
+    }
+
     const [reservationId, setReservationId] = useState('')
     const [roomId, setRoomId] = useState('')
     const [guestId, setGuestId] = useState('')
@@ -48,7 +57,8 @@ export default function AddReservation() {
     const reservation={reservationId,roomId,guestId,checkInDate,checkOutDate,numOfGuest,totalPrice}
     ReservationService.addReservations(reservation).then((response)=>{
         console.log(response.data)
-        navigate('/receptionist/Allreservation')
+        toast('data Added successfully');
+        navigate('/receptionist/Allreservation');
        
     }).catch(error=>{
         console.log(error)
@@ -64,20 +74,20 @@ export default function AddReservation() {
             <TextField variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
                 className={classes.resid} value={reservationId} onChange={(e)=>setReservationId(e.target.value)}
                 error={reservationId === ""}
-                helperText={reservationId === "" ? "Empty!" : " "}>
+                helperText={reservationId === "" ? "Enter reservation Id like 100001,100002....!" : " "}>
             </TextField>
             
             <br></br><br></br>
             <TextField variant="outlined" label="Room ID" placeholder='Enter the Room Id'
                 className={classes.rid} value={roomId} onChange={(e)=>setRoomId(e.target.value)}
                 error={roomId === ""}
-                helperText={roomId === "" ? "Empty!" : " "}>
+                helperText={roomId === "" ? "enter valid room id  like 1001,1002....." : " "}>
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest ID" placeholder='Enter the Guest Id'
                 className={classes.gid} value={guestId} onChange={(e)=>setGuestId(e.target.value)}
                 error={guestId === ""}
-                helperText={guestId === "" ? "Empty!" : " "}>
+                helperText={guestId === "" ? "Enter valid guest id like 101,102,103,104....." : " "}>
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" 
@@ -110,14 +120,22 @@ export default function AddReservation() {
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Total Price" placeholder='Enter the total price'
-                className={classes.price} value={totalPrice} onChange={(e)=>setTotalPrice(e.target.value)}
-                error={numOfGuest === ""}
-                helperText={numOfGuest === "" ? "Empty!" : " "}>
+                className={classes.price} value={totalPrice*numOfGuest} onChange={(e)=>setTotalPrice(e.target.value)}
+                error={totalPrice === ""}
+                helperText={totalPrice === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
             <Button variant='contained' onClick={saveReservation}>
                 submit
             </Button>
+{/* <Button variant='contained' onClick={()=>
+{
+    notify();
+    saveReservation();
+}} >
+                submit
+            </Button> */}
+
             <Button variant='outlined'><Link to='/receptionist'>Back</Link></Button>
         </div>
        

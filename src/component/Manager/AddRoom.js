@@ -4,8 +4,11 @@ import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import RoomService from '../../services/RoomService'
 import { Link,useNavigate } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 const useStyles=makeStyles({
     id:{
         width:1000,
@@ -36,6 +39,7 @@ export default function AddRoom() {
     const room={roomId,roomType,roomRent,roomAvailable}
     RoomService.addRooms(room).then((response)=>{
         console.log(response.data)
+        toast('Room Added successfully');
         navigate('/manager/AllRoom')
     }).catch(error=>{
         console.log(error)
