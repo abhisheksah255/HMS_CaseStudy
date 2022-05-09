@@ -1,9 +1,9 @@
-import React,{ useState} from 'react'
+import React,{ useState, useEffect} from 'react'
 import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import ReservationService from '../../services/ReservationService'
-import { Link,useNavigate} from 'react-router-dom'
+import { Link,useNavigate, useSearchParams} from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 
@@ -36,20 +36,33 @@ export default function AddReservation() {
 
     let navigate=useNavigate();
 
-    const notify = ()=>{
- 
-        // Calling toast method by passing string
-        
-    }
+
 
     const [reservationId, setReservationId] = useState('')
-    const [roomId, setRoomId] = useState('')
     const [guestId, setGuestId] = useState('')
     const [checkInDate, setCheckInDate] = useState('')
     const [checkOutDate, setCheckOutDate] = useState('')
     const [numOfGuest, setNumOfGuest] = useState('')
     const [totalPrice, setTotalPrice] = useState('')
+    let [searchParams, setSearchParams] = useSearchParams();
+    const roomId= searchParams.get("id");
+    const roomPrice= searchParams.get("price");
+
+
    
+
+    useEffect(() => {
+        console.log(checkOutDate,checkInDate,numOfGuest);
+        const date1 = new Date(checkInDate);
+const date2 = new Date(checkOutDate);
+if(date1 && date2 && numOfGuest){
+const diffTime = Math.abs(date2 - date1);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+console.log(diffDays + " days");
+setTotalPrice(roomPrice*diffDays*numOfGuest)
+}
+
+    },[checkOutDate,checkInDate,numOfGuest])
 
     const saveReservation =(e)=>{
     e.preventDefault();
@@ -78,12 +91,21 @@ export default function AddReservation() {
             </TextField>
             
             <br></br><br></br>
-            <TextField variant="outlined" label="Room ID" placeholder='Enter the Room Id'
+            {/* <TextField variant="outlined" label="Room ID" placeholder='Enter the Room Id'
                 className={classes.rid} value={roomId} onChange={(e)=>setRoomId(e.target.value)}
                 error={roomId === ""}
                 helperText={roomId === "" ? "enter valid room id  like 1001,1002....." : " "}>
             </TextField>
+            <br></br><br></br> */}
+
+ <TextField variant="outlined" label="Room ID" placeholder='Enter the Room Id'
+                className={classes.rid} value={roomId} 
+                error={roomId === ""}
+                helperText={roomId === "" ? "enter valid room id  like 1001,1002....." : " "}>
+            </TextField>
             <br></br><br></br>
+
+
             <TextField variant="outlined" label="Guest ID" placeholder='Enter the Guest Id'
                 className={classes.gid} value={guestId} onChange={(e)=>setGuestId(e.target.value)}
                 error={guestId === ""}
@@ -119,8 +141,9 @@ export default function AddReservation() {
                 helperText={numOfGuest === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
+            <h4>RoomPrice*Number Of Guest*(CheckOutDate-CheckInDate)={totalPrice}</h4>
             <TextField variant="outlined" label="Total Price" placeholder='Enter the total price'
-                className={classes.price} value={totalPrice*numOfGuest} onChange={(e)=>setTotalPrice(e.target.value)}
+                className={classes.price} value={totalPrice} onChange={(e)=>setTotalPrice(e.target.value)}
                 error={totalPrice === ""}
                 helperText={totalPrice === "" ? "Empty!" : " "}>
             </TextField>
@@ -128,13 +151,7 @@ export default function AddReservation() {
             <Button variant='contained' onClick={saveReservation}>
                 submit
             </Button>
-{/* <Button variant='contained' onClick={()=>
-{
-    notify();
-    saveReservation();
-}} >
-                submit
-            </Button> */}
+
 
             <Button variant='outlined'><Link to='/receptionist'>Back</Link></Button>
         </div>

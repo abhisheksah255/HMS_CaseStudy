@@ -6,42 +6,45 @@ import profile3 from "../Image/i1.jpg";
 import { Button } from "@material-ui/core";
 
 const Rhome = () => {
+
+  const textContainerStyle={
+    height: '40px'
+  }
   return (
     <div className="Rhome">
       <div className="container">
         <div className="row">
-          <div className="col-md-12 mb-4  text-center"></div>
+          <div className="col-md-12 mb-4 text-center"></div>
           <h1 className="text-center">Welcome to Receptionist Profile</h1>
           <div className="underline mx-auto"></div>
 
           <div className="col-md-4">
             <div className="card -shadow">
-              <img src={profile1} className="border-bottom" alt="profile" />
+              <img src={profile1} className="border-bottom rhome-card-img" alt="profile" />
 
               <div className="card-body">
                 <h3>Reservation Service</h3>
                 <div className="underline"></div>
 
+                <div style={textContainerStyle}>
                 <p>
                   This is the Reservation Service here we can do reservation .
                 </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <Button variant="contained">
+                </div>
+                <div class="d-grid gap-2  mx-auto">
+                 
                     <Link
                       to="/receptionist/addreservation"
                       className="btn btn-link"
                     >
                       Add Reservation
                     </Link>
-                  </Button>
-                  <Button variant="contained">
                     <Link
                       to="/receptionist/Allreservation"
                       className="btn btn-link"
                     >
                       All Reservation
                     </Link>
-                  </Button>
                 </div>
               </div>
             </div>
@@ -50,28 +53,28 @@ const Rhome = () => {
           {/* ************************************************************* */}
 
           <div className="col-md-4">
-            <div className="card -shadow">
-              <img src={profile2} className="border-bottom" alt="profile" />
+            <div className="card -shadow" >
+              <img src={profile2} className="border-bottom rhome-card-img" alt="profile" />
 
               <div className="card-body">
                 <h3>Guest Service</h3>
                 <div className="underline"></div>
 
+                <div style={textContainerStyle}>
                 <p>
-                  This is the guest service here we can add our guest and see
-                  all guest and delete guest.
+                  This is the Reservation Service here we can do reservation .
                 </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <Button variant="contained">
+                </div>
+                <div class="d-grid gap-2  mx-auto">
+                  
                     <Link to="/receptionist/addGuest" className="btn btn-link">
                       add Guest
                     </Link>
-                  </Button>
-                  <Button variant="contained">
+                  
                     <Link to="/receptionist/AllGuest" className="btn btn-link">
                       All Guest
                     </Link>
-                  </Button>
+             
                 </div>
               </div>
             </div>
@@ -82,7 +85,7 @@ const Rhome = () => {
             <div className="card -shadow">
               <img
                 src={profile3}
-                className="w-100 border-bottom"
+                className="border-bottom rhome-card-img"
                 alt="profile"
               />
 
@@ -91,16 +94,20 @@ const Rhome = () => {
                 <h3>Room Service</h3>
                 <div className="underline"></div>
 
+                <div style={textContainerStyle}>
                 <p>
-                  This is the Room Service here receptionst can only add guest
-                  to the room and deleteguest and add rervations to the room.
+                  This is the Reservation Service here we can do reservation .
                 </p>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <Button variant="contained">
+                </div>
+                <div class="d-grid gap-2  mx-auto">
+                  
                     <Link to="/manager/getAvail" className="btn btn-link">
                       Available Room
                     </Link>
-                  </Button>
+                    <Link to="/manager/getAvail" className="btn btn-link">
+                      Available Room
+                    </Link>
+                  
                 </div>
               </div>
             </div>

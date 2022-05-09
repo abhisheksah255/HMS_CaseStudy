@@ -7,17 +7,17 @@ import profile3 from "../Image/pic4.jpg";
 const Mhome = () => {
   return (
 
-<div className="container abhi-img">
-            <div className="row">
+<div className="container ">
+            <div className="row manager ">
               <div className="col-md-12 mb-4  text-center"></div>  
                     <h1 className="text-center">Welcome to Manager Profile</h1>
                     <div className="underline mx-auto"></div>
 
-                    <div className="col-md-4">
+                    <div className="col-md-4 ">
                 <div className="card -shadow">
                   <img
                     src={profile1}
-                    className="w-100 border-bottom "
+                    className="border-bottom mimage"
                     alt="profile"
                   />
 
@@ -28,12 +28,12 @@ const Mhome = () => {
                     <p>
                      This is Inventory Service 
                     </p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                    <button className="btn btn-success"><Link to='/manager/addInventory' className="btn btn-link">
-                      Add Inventory</Link></button>
+                    <div class="d-grid gap-2  mx-auto">
+                    <Link to='/manager/addInventory' className="btn">
+                      Add Inventory</Link>
                          
-                      <button className="btn btn-warning"><Link to='/manager/AllInventory' className="btn btn-link">
-                      All Inventory</Link></button>
+                  <Link to='/manager/AllInventory' className="btn">
+                      All Inventory</Link>
                       </div>
                   </div>
                 </div>
@@ -41,11 +41,11 @@ const Mhome = () => {
 
 {/* ************************************************************* */}
 
-<div className="col-md-4">
+<div className="col-md-4 mbox">
                 <div className="card -shadow">
                   <img
                     src={profile2}
-                    className="w-100 border-bottom"
+                    className="border-bottom mimage"
                     alt="profile"
                   />
 
@@ -57,22 +57,22 @@ const Mhome = () => {
                      This is Staff Service
                     </p>
 
-                      <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-success" type="button"><Link to='/manager/addstaff' >
-                      Add Staff</Link></button>
-  <button class="btn btn-warning" type="button"><Link to='/manager/Allstaff' >
-                      All Staff</Link></button>
+                      <div class="d-grid gap-2 mx-auto">
+<Link to='/manager/addstaff'className="btn" >
+                      Add Staff</Link>
+  <Link to='/manager/Allstaff' className="btn">
+                      All Staff</Link>
           </div>
                   </div>
                 </div>
               </div>
 
 {/* ************************************************************** */}
-<div className="col-md-4">
+<div className="col-md-4 mbox">
                 <div className="card -shadow">
                   <img
                     src={profile3}
-                    className="w-100 border-bottom"
+                    className="border-bottom"
                     alt="profile"
                   />
 
@@ -83,15 +83,15 @@ const Mhome = () => {
                     <p>
                       This is room Service
                     </p>
-                    <div class="d-grid gap-2 col-6 mx-auto">
-                    <button className="btn btn-success"><Link to='/manager/addRoom' className="btn btn-link">
-                      Add Room</Link></button>
+                    <div class="d-grid gap-2 mx-auto">
+                    <Link to='/manager/addRoom' className="btn btn-link">
+                      Add Room</Link>
                         
-                      <button className="btn btn-warning"><Link to='/manager/AllRoom' className="btn btn-link">
-                      All Room</Link></button>
+                    <Link to='/manager/AllRoom' className="btn btn-link">
+                      All Room</Link>
 
-                      <button className="btn btn-dark"><Link to='/manager/getAvail' className="btn btn-link">
-                      Available Room</Link></button>
+                      <Link to='/manager/getAvail' className="btn btn-link">
+                      Available Room</Link>
                       </div>
                   </div>
                 </div>

@@ -1,8 +1,4 @@
-.staff-container{
-  background-image: url(../Image/a1.jpg);
-  width: 100%;
-  height: 100%;
-}
+
 
 table {
     font-family: Arial, Helvetica, sans-serif;
@@ -27,3 +23,60 @@ table {
     text-align: center;
     color: black;
   }
+  .mimage{
+    width:200px;
+    height:200px;
+    padding-top:10px;
+    margin-left: 10px;
+    margin: auto;
+  }
+  .mbox{
+    width: 400px;
+    height:400px;
+  }
+  
+
+
+/* button {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
+  border-radius: 50px;
+  border-width: 0;
+  box-shadow: rgba(124, 83, 176, 0.24) 0 2px 2px,rgba(179, 132, 201, 0.4) 0 8px 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: flex;
+  font-family: Quicksand,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: .04em;
+  line-height: 16px;
+  margin: 0;
+  padding: 18px 18px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,rgba(255, 255, 255, 0.2) 0 0 12px,rgba(57, 31, 91, 0.6) 1px 1px 4px,rgba(57, 31, 91, 0.32) 4px 4px 16px;
+  user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+
+button :hover {
+  background-image: linear-gradient(#59cd9d, #b9b430 50%);
+} */
+
+@media (min-width: 768px) {
+button {
+    font-size: 21px;
+    padding: 18px 34px;
+  }
+}
+
+.manager{
+  width: 100%;
+  height: 100%;
+
+}
+  

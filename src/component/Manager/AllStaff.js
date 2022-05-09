@@ -1,10 +1,16 @@
 import { Button } from '@material-ui/core'
 import React,{useState,useEffect} from 'react'
+import {useNavigate} from 'react-router-dom';
 import StaffService from '../../services/StaffService';
 import './AllStyle.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 export default function AllInventory() {
+
+    let navigate=useNavigate();
 
     const [staff, setStaff] = useState([])
     // for Rest API call 
@@ -22,15 +28,20 @@ export default function AllInventory() {
     const deleteStaff=(staffId)=>{
         StaffService.deleteStaff(staffId).then((response)=>{
             console.log(staffId);
+            toast('Staff data deleated successfully');
             getAllStaff();
         }).catch(error => {
             console.log(error);
         })
     }
+    const back=()=>{
+        navigate('/manager/addstaff');
+    }
+
     return (
         <>
-        <div className="staff-container">
-            
+        <Button variant='outlined'onClick={()=>back()}>Back</Button>
+       
             <div style={{ maxWidth: "100%", width: "90%" }} className='container'>
             <br></br><br></br><br></br>
             <h1>Staff List</h1>
@@ -68,7 +79,7 @@ export default function AllInventory() {
                 </tbody>
             </table>
         </div>
-        </div>
+       
         </>
     )
 }

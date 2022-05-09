@@ -113,12 +113,6 @@ export default function AddGuest() {
             <Button variant='contained' onClick={saveGuest}>
                 submit
             </Button>
-            {/* <Button variant='contained' onClick={()=>
-{
-    
-    saveGuest();
-    notify();
-}} >Submit</Button> */}
 
             <Button variant='contained'>
                 <Link to='/receptionist/addReservation'>Add Reservation</Link>
@@ -127,59 +121,7 @@ export default function AddGuest() {
         </div>
        
 
-            {/* <div style={{ marginTop: 100, maxWidth: "100%", width: "80%" }} className='container'>
-            <br></br><br></br>
-            <h1>Enter Guest Details</h1>
-            
-            <form>
-
-
-            <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestId</strong></label>
-                  <input type="text" id="GuestId" className={classes.id} value={guestId} onChange={(e)=>setGuestId(e.target.value)}/>
-                  
-                </div>
-
-                <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestphoneNumber</strong></label>
-                  <input type="text" id="phonenumber" className={classes.phoneNumber} value={guestPhoneNumber} onChange={(e)=>setGuestPhoneNumber(e.target.value)}/>
-                  </div>
-               
-                <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestName</strong></label>
-                  <input type="text" id="Guestname" className={classes.name} value={guestName} onChange={(e)=>setGuestName(e.target.value)}/>
-                  
-                </div>
-                <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestId</strong></label>
-                  <input type="text" id="GuestEmail" className={classes.email} value={guestEmail} onChange={(e)=>setGuestEmail(e.target.value)}/>
-                  
-                </div>
-            
-
-                <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestGender</strong></label>
-                  <input type="text" id="GuestGender" className={classes.gender} value={guestGender} onChange={(e)=>setGuestGender(e.target.value)}/>
-                  
-                </div>
-
-                <div className="form-outline mb-1">
-                <label className="form-label" for="form3Example1cg" style={{ fontFamily: "Monospace"}}><strong>GuestId</strong></label>
-                  <input type="text" id="GuestAddress" className={classes.address} value={guestAddress} onChange={(e)=>setGuestAddress(e.target.value)}/>
-                  
-                </div>
-
-            <button className='btn-btn-submit' onClick={(e)=>saveGuest(e)}>
-                Add Guest
-            </button>
-            <button className='btn-btn-primary'>
-                <Link to='/receptionist/addReservation'>Add Reservation</Link>
-            </button>
-                <button className='btn-btn-submit' ><Link to='/receptionist' >Back</Link></button>
-
-            </form>
-                    </div> */}
-        
+           
         </>
     )
 }

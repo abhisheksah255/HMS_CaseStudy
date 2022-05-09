@@ -1,16 +1,23 @@
 import { Button } from '@material-ui/core'
 import React,{useState,useEffect} from 'react'
+import {useNavigate} from 'react-router-dom';
 import InventoryService from '../../services/InventoryService'
 import './AllStyle.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 export default function AllInventory() {
 
     const [inventory, setInventory] = useState([])
+
+    let navigate=useNavigate();
     // for Rest API call 
     useEffect(() => {
         getAllInventory()
     }, [])
+
     const getAllInventory=()=>{
         InventoryService.getAllInventory().then((response)=>{
             setInventory(response.data)
@@ -22,24 +29,20 @@ export default function AllInventory() {
     const deleteInventory=(inventoryId)=>{
         InventoryService.deleteInventory(inventoryId).then((response)=>{
             console.log(inventoryId);
+            toast('Inventory data deleated successfully');
             getAllInventory();
         }).catch(error => {
             console.log(error);
         })
     };
+    const back=()=>{
+        navigate('/manager/addInventory');
+    }
     
-    // const getById=(inventoryId)=>{
-    //     InventoryService.getById(inventoryId).then((response)=>{
-    //         console.log(inventoryId);
-    //         getAllInventorys();
-    //     }).catch(error => {
-    //         console.log(error);
-    //     })
-    // };
     
     return (
         <>
-        
+        <Button variant='outlined'onClick={()=>back()}>Back</Button>
             <div style={{ maxWidth: "100%", width: "90%" }} className='container'>
             <br></br><br></br><br></br>
             <h1>Inventory List</h1>

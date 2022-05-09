@@ -63,7 +63,7 @@ const Home = () => {
                     <div className="underline"></div>
 
                     <p>This is Receptionist Profile</p>
-                    <Link to="/profile" className="btn btn-link">
+                    <Link to="/receptionist" className="btn btn-link">
                       Go to profile
                     </Link>
                   </div>
@@ -87,7 +87,7 @@ const Home = () => {
                     </div>
 
                     <p>This is the Manager Profile</p>
-                    <Link to="/profile" className="btn btn-link">
+                    <Link to="/manager" className="btn btn-link">
                       Go to profile
                     </Link>
                   </div>
@@ -109,7 +109,7 @@ const Home = () => {
                     <div className="underline"></div>
 
                     <p>This is owner profile</p>
-                    <Link to="/profile" className="btn btn-link">
+                    <Link to="/owner" className="btn btn-link">
                       Go to profile
                     </Link>
                   </div>

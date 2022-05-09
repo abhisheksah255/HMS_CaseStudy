@@ -1,3 +1,7 @@
+body{
+overflow-x: hidden;
+}
+
 
 .profile{
   background: url(./component/Image/img4.jpg);
@@ -11,6 +15,10 @@
     display: inline-block;
     height: 800px;
    
+}
+
+.rhome-card-img{
+  height: 250px !important;
 }
 
 .login{
@@ -43,7 +51,16 @@
   max-height: 80vh;
 }
 
-.abhi-img{
+a{
+  text-decoration: none;
+}
 
+.btn{
+  background-image: linear-gradient(to right bottom, #080537, #003163, #005c89, #0088a7, #25b5bd);
+  color: #f2f2f2 !important;
+  text-decoration: none !important;
+}
 
+.room-card-img{
+  height: 150px;
 }

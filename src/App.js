@@ -34,6 +34,9 @@ import AddRoom from "./component/Manager/AddRoom";
 import AllRooms from './component/Manager/AllRooms';
 import SearchAvlRoom from "./component/Manager/SearchAvlRoom";
 import axios from "axios";
+import { Checkout } from "./component/Receptionist/Checkout";
+import AddDepartment from "./component/Owner/AddDepartment";
+import AllDepartment from "./component/Owner/AllDepartment";
 
 function App() {
   const isAuthenticated = true ? localStorage.getItem("token") !== null : false;
@@ -60,6 +63,7 @@ function App() {
 
             <Route path='/receptionist/addreservation' exact element={<AddReservation/>}/>
             <Route path='/receptionist/Allreservation' exact element={<AllReservation/>}/>
+            <Route path='/checkout' exact element={<Checkout/>}/>
   
             <Route path='/manager/addInventory' exact element={<AddInventory/>}/>
             <Route path='/manager/AllInventory' exact element={<AllInventory/>}/>          
@@ -70,6 +74,10 @@ function App() {
             
             <Route path='/manager/addstaff' exact element={<AddStaff/>} />
             <Route path='/manager/Allstaff' exact element={<AllStaff/>} />
+         
+            <Route path='/owner/adddepartment' exact element={<AddDepartment/>} />
+            <Route path='/owner/Alldepartment' exact element={<AllDepartment/>} />
+         
           </Routes>
         </Router>
       </div>
@@ -77,10 +85,11 @@ function App() {
   } else {
     return (
       <Router>
+        <Navigation />
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="*" element={<Navigate to='/login' replace/>} />
         </Routes>
       </Router>

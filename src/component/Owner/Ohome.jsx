@@ -30,10 +30,12 @@ const Ohome = () => {
                     <p>
                       This is the department Service which will be managed by only owner. 
                     </p>
-                   <Button variant='contained'> <Link to="/reservation" className="btn btn-link">
-                      Reservation
-                    </Link></Button>
-                   
+                   <Link to="/owner/adddepartment" className="btn btn-link">
+                    Add  Department
+                    </Link>
+                   <Link to="/owner/Alldepartment" className="btn btn-link">
+                    All  Department
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -55,9 +57,9 @@ const Ohome = () => {
                     <p>
                 This is the manager profile here owner can access all the services of manager
                     </p>
-                    <Button variant='contained'> <Link to="/manager" className="btn btn-link">
+                    <Link to="/manager" className="btn btn-link">
                       Manager services
-                    </Link></Button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -78,9 +80,9 @@ const Ohome = () => {
                     <p>
                    This is thr receptionist profile here owner can also have rights to access the receptionist profile  
                     </p>
-                    <Button variant='contained'> <Link to="/receptionist" className="btn btn-link">
+                   <Link to="/receptionist" className="btn btn-link">
                       Receptionist services
-                    </Link></Button>
+                    </Link>
                   </div>
                 </div>
               </div>

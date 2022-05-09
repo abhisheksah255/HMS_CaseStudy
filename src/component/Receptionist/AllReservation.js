@@ -1,13 +1,21 @@
-import { Button } from '@material-ui/core'
+import { Button,Link } from '@material-ui/core'
 import React,{useState,useEffect} from 'react'
 import ReservationService from '../../services/ReservationService'
 import './AllStyle.css'
+import {useNavigate} from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
+toast.configure()
 export default function AllReservations() {
 
     const [reservation, setReservation] = useState([])
     // for Rest API call 
+    // const location = useLocation();
+    // const roomId=location.state.id;
+    let navigate=useNavigate();
+
     useEffect(() => {
         getAllReservations()
     }, [])
@@ -30,11 +38,18 @@ export default function AllReservations() {
     }
     const confirmReservation=(reservationDetails)=>{
         console.log(reservationDetails);
+        toast('Checkout successfully..................');
+         navigate('/checkout');
+    }
+
+    const back=()=>{
+        navigate('/receptionist/addreservation');
     }
     
     return (
         <>
-      
+       <Button variant='outlined'onClick={()=>back()}>Back</Button>
+
             <div style={{ maxWidth: "100%", width: "90%" }} className='container'>
             <br></br><br></br><br></br>
             <h1>Reservation List</h1>
@@ -58,6 +73,7 @@ export default function AllReservations() {
                                 <tr key={reservationDetails.reservationId}>
                                     <td>{reservationDetails.reservationId}</td>
                                     <td>{reservationDetails.roomId}</td>
+                                    
                                     <td>{reservationDetails.guestId}</td>
                                     <td>{reservationDetails.checkInDate}</td>
                                     <td>{reservationDetails.checkOutDate}</td>

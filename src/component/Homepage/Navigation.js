@@ -19,7 +19,7 @@ const Navigation = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   if (isAuthenticated) {
@@ -29,11 +29,8 @@ const Navigation = () => {
 
         <nav class="navbar fix-top navbar-expand-lg navbar-dark bg-dark shadow">
           <div class="container-fluid">
-
-            <a class="navbar-brand" img src={logo}>
-              Hotel Paradise{" "}
-            </a>
-            <button
+          <img src={logo} alt="" className={'d-block m-auto bg-light'} style={{width:"100px"}}/>
+            {/* <button
               class="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
@@ -43,18 +40,18 @@ const Navigation = () => {
               aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> */}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                   <Link to="/" class="nav-link active">
-                    Home
+                   <h2 class="m-3 text-warning"  ><i class="fa fa-home fa-fw"></i> Home</h2>
                   </Link>
                 </li>
 
                 <li class="nav-item">
                   <Link to="/profile" class="nav-link active">
-                    Profile
+                   <h2 class="m-3 text-danger"><i class="fa fa-user fa-fw"></i>Profile</h2> 
                   </Link>
                 </li>
               </ul>
@@ -63,7 +60,7 @@ const Navigation = () => {
                 type="submit"
                 onClick={handleLogout}
               >
-                Logout
+              <h2>Logout</h2>  
               </button>
             </div>
           </div>
@@ -114,9 +111,9 @@ const Navigation = () => {
                 </li>
 
                 <li class="nav-item">
-                  <Link to="/signup" class="nav-link active">
+                  {/* <Link to="/signup" class="nav-link active">
                     Signup
-                  </Link>
+                  </Link> */}
                 </li>
               </ul>
             </div>

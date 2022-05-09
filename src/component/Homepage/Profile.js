@@ -24,7 +24,7 @@ const Profile = () => {
               {/* this is receptnist profile card */}
 
               <div className="col-md-4">
-                <div className="card -shadow">
+                <div className="card -shadow text-center">
                   <img
                     src={profile1}
                     className="w-100 border-bottom"
@@ -36,9 +36,9 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                     Receptionist Profile
+                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi reiciendis quae qui.
                     </p>
-                    <Link to="/receptionist" className="btn btn-link">
+                    <Link to="/receptionist" className="btn">
                       Go to profile
                     </Link>
                   </div>
@@ -48,7 +48,7 @@ const Profile = () => {
               {/* this is manager profile card */}
 
               <div className="col-md-4">
-                <div className="card -shadow">
+                <div className="card -shadow text-center">
                   <img
                     src={profile2}
                     className="w-100 border-bottom"
@@ -60,9 +60,9 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                     Manager Profile
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur totam veniam nemo.
                     </p>
-                    <Link to="/manager" className="btn btn-link">
+                    <Link to="/manager" className="btn">
                       Go to profile
                     </Link>
                   </div>
@@ -72,7 +72,7 @@ const Profile = () => {
               {/* this is owner profile card */}
 
               <div className="col-md-4">
-                <div className="card -shadow">
+                <div className="card -shadow text-center">
                   <img
                     src={profile3}
                     className="w-100 border-bottom"
@@ -84,9 +84,9 @@ const Profile = () => {
                     <div className="underline"></div>
 
                     <p>
-                      This is Owner Profile.
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim voluptates laborum eveniet!
                     </p>
-                    <Link to="/owner" className="btn btn-link">
+                    <Link to="/owner" className="btn">
                       Go to profile
                     </Link>
                   </div>

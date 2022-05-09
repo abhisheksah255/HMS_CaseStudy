@@ -11,7 +11,7 @@ function Login() {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleLogin = (e) => {
-    toast('You have successfully Login to Our HMS...');
+   
     e.preventDefault();
     axios
       .post("http://localhost:8090/authenticate", {
@@ -21,9 +21,13 @@ function Login() {
       .then((res) => {
         localStorage.setItem("token", res.data);
        
+       
         window.location.href = "/";
+        console.log(res.data)
+        toast('You have successfully Login to Our HMS...');
       })
       .catch((err) => {
+        alert("Incorrect login and password");
         setShowAlert(true);
       });
   };
