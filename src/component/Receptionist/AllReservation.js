@@ -39,11 +39,11 @@ export default function AllReservations() {
     const confirmReservation=(reservationDetails)=>{
         console.log(reservationDetails);
         toast('Checkout successfully..................');
-         navigate('/checkout');
+         navigate(`/checkout?price=${reservationDetails.totalPrice}`);
     }
 
     const back=()=>{
-        navigate('/receptionist/addreservation');
+        navigate('/receptionist');
     }
     
     return (

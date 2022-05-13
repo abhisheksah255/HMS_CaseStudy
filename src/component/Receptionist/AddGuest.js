@@ -51,14 +51,20 @@ export default function AddGuest() {
 
     const saveGuest =(e)=>{
       e.preventDefault();
+
+      if(guestId&&name&&phoneNumber&&email&&gender&&address){
+          console.log(guestId,name,phoneNumber,email,gender,address)
+          toast('Guest Added Successfully');
+          navigate('/receptionist/AllGuest');
+      }
   
       const guest={guestId,name,phoneNumber,email,gender,address}
       GuestService.addGuests(guest).then((response)=>{
           console.log(response.data)
-          toast('Guest Added Successfully');
-          navigate('/receptionist/AllGuest');
+
       }).catch(error=>{
           console.log(error)
+          toast('Guest detail Incorrect....');
       })
   }
     const classes=useStyles()
@@ -72,7 +78,8 @@ export default function AddGuest() {
                 className={classes.id}
                 value={guestId} onChange={(e)=>setGuestId(e.target.value)}
                 error={guestId === ""}
-                helperText={guestId === "" ? "Fill the Guest Id like--101,102......" : " "}>
+                helperText={guestId === " " ? "Fill the Guest Id like--101,102......" : " "}>
+                {/* helperText={guestId === ("Required") ? " ":"Fill the Guest Id like--101,102......"}> */}
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest Name" placeholder='Enter the guest name'
@@ -80,6 +87,7 @@ export default function AddGuest() {
                  value={name} onChange={(e)=>setGuestName(e.target.value)}
                  error={name === ""}
                 helperText={name === "" ? "Enter the Guest Name..." : " "}>
+                     {/* helperText={name === ("Required")? " ":"Enter the Guest Name..."}> */}
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest Contact" placeholder='Enter the contact of guest'
@@ -87,6 +95,7 @@ export default function AddGuest() {
                  value={phoneNumber} onChange={(e)=>setGuestPhoneNumber(e.target.value)}
                  error={phoneNumber === ""}
                 helperText={phoneNumber === "" ? "Fill 10 digit phone Number" : " "}>
+                         {/* helperText={phoneNumber === ("Required") ? "":"Fill 10 digit phone Number"}> */}
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest Email" placeholder='Enter the email of guest'
@@ -94,6 +103,8 @@ export default function AddGuest() {
                 value={email} onChange={(e)=>setGuestEmail(e.target.value)}
                 error={email === ""}
                 helperText={email === "" ? "Fill the guestemail like abhi@gmail.com,deepak@gmail.com....." : " "}>
+                {/* helperText={email === ("Required") ?"": "Fill the guestemail like abhi@gmail.com,deepak@gmail.com....."}> */}
+
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest Gender" placeholder='Enter the gender of guest'
@@ -101,6 +112,7 @@ export default function AddGuest() {
                 value={gender} onChange={(e)=>setGuestGender(e.target.value)}
                 error={gender === ""}
                 helperText={gender === "" ? "fill here Male/Female" : " "}>
+                     {/* helperText={gender === ("Required") ? "":"fill here Male/Female"}> */}
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Guest Address" 
@@ -108,6 +120,7 @@ export default function AddGuest() {
                 className={classes.address} value={address} onChange={(e)=>setGuestAddress(e.target.value)}
                 error={address === ""}
                 helperText={address === "" ? "Fill the Guest address " : " "}>
+                    {/* helperText={address === ("Required") ? "":"Fill the Guest address "}> */}
             </TextField>
             <br></br><br></br>
             <Button variant='contained' onClick={saveGuest}>

@@ -37,6 +37,7 @@ import axios from "axios";
 import { Checkout } from "./component/Receptionist/Checkout";
 import AddDepartment from "./component/Owner/AddDepartment";
 import AllDepartment from "./component/Owner/AllDepartment";
+import OurRooms from "./component/Homepage/OurRooms";
 
 function App() {
   const isAuthenticated = true ? localStorage.getItem("token") !== null : false;
@@ -57,6 +58,7 @@ function App() {
             <Route path="/receptionist" element={<Rhome />} />
             <Route path="/owner" element={<Ohome />} />
             <Route path="/manager" element={<Mhome />} />
+            <Route path="/room" element={<OurRooms/>}/>
 
             <Route path="/receptionist/addGuest" element={<AddGuest />} />
             <Route path="/receptionist/AllGuest" element={<AllGuest />} />

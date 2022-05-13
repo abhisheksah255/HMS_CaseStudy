@@ -35,7 +35,7 @@ export default function AllGuests() {
         })
     }
     const back=()=>{
-        navigate('/receptionist/addGuest');
+        navigate('/receptionist');
     }
 
     return (

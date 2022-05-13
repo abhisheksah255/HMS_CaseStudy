@@ -36,13 +36,19 @@ export default function AddInventory() {
     const saveInventory =(e)=>{
     e.preventDefault();
 
+    if(inventoryId&&inventoryType&&inventoryName&&inventoryStock){
+        console.log(inventoryId,inventoryType,inventoryName,inventoryStock)
+        toast('Inventory Added successfully');
+        navigate('/manager/AllInventory')
+    }
+
     const inventory={inventoryId,inventoryType,inventoryName,inventoryStock}
     InventoryService.addInventory(inventory).then((response)=>{
         console.log(response.data)
-        toast('Inventory Added successfully');
-        navigate('/manager/AllInventory')
+     
     }).catch(error=>{
         console.log(error)
+        toast('Incorrect Data.......');
     })
 }
     const classes=useStyles()

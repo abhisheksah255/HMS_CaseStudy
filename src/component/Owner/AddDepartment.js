@@ -19,14 +19,20 @@ export default function AddDepartment() {
     const saveDepartment=(e)=>{
         e.preventDefault();
 
+        if(departmentId&&departmentName&&desc&&no_of_Emp){
+            console.log(departmentId,departmentName,desc,no_of_Emp);
+            toast('Department Added Successfully');
+            navigate('/owner/Alldepartment');
+        }
+
         const department={departmentId,departmentName,desc,no_of_Emp}
         DepartmentService.addDepartment(department).then((response)=>{
             console.log(response.data);
-            toast('Department Added Successfully');
-            navigate('/owner/Alldepartment');
+           
 
         }).catch((error)=>{
             console.log(error)
+            toast('Please fill correct Information....');
         })
     }
 

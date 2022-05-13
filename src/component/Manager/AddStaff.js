@@ -50,13 +50,20 @@ const [employeeSalary,setEmployeeSalary]=useState('')
     const saveStaff =(e)=>{
     e.preventDefault();
 
+    if(employeeId&&employeeName&&employeeAddress&&employeeEmail&&employeeGender&&employeePost&&employeeSalary){
+        console.log(employeeId,employeeName,employeeAddress,employeeEmail,employeeGender,employeePost,employeeSalary);
+        toast('Staff Added successfully');
+        navigate('/manager/Allstaff')
+
+    }
+
     const staff={employeeId,employeeName,employeeAddress,employeeEmail,employeeGender,employeePost,employeeSalary}
     StaffService.addStaff(staff).then((response)=>{
         console.log(response.data)
-        toast('Staff Added successfully');
-        navigate('/manager/Allstaff')
+        
     }).catch(error=>{
         console.log(error)
+        toast('Fill the data correctly...');
     })
 }
     const classes=useStyles()
@@ -67,19 +74,6 @@ const [employeeSalary,setEmployeeSalary]=useState('')
             
             <h1 className='text-center'>Enter Staff Details</h1>
             <br></br><br></br>
-{/* <form action="container">
-
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-</form> */}
-
-
 
 <TextField variant="outlined" label="Employee ID" placeholder='Enter a Employee Id' 
                 className={classes.id} 

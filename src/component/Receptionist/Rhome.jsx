@@ -34,7 +34,8 @@ const Rhome = () => {
                 <div class="d-grid gap-2  mx-auto">
                  
                     <Link
-                      to="/receptionist/addreservation"
+                     to="/room"
+                     // to="/receptionist/addreservation"
                       className="btn btn-link"
                     >
                       Add Reservation

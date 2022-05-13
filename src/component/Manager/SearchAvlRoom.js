@@ -72,9 +72,9 @@ export default function SearchAvlRoom() {
                                     <td>
                                         <Button variant='outlined' color='secondary'>Delete</Button>
                                         
-                                        <Button variant='outlined' color='primary'>
+                                        {/* <Button variant='outlined' color='primary'>
                                             <Link to='/receptionist/addGuest'>Add Guest</Link>
-                                        </Button>
+                                        </Button> */}
                                     </td>
                                 </tr>
                         )
