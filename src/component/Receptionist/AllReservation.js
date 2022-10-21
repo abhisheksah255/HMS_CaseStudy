@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 
 toast.configure()
 export default function AllReservations() {
+   
 
     const [reservation, setReservation] = useState([])
     // for Rest API call 
@@ -31,6 +32,7 @@ export default function AllReservations() {
         ReservationService.deleteReservation(reservationId).then((response)=>{
             console.log(reservationId);
             getAllReservations();
+            toast('Data deleted successfully!!!.........');
             console.log(response.data)
         }).catch(error => {
             console.log(error);
@@ -38,8 +40,10 @@ export default function AllReservations() {
     }
     const confirmReservation=(reservationDetails)=>{
         console.log(reservationDetails);
-        toast('Checkout successfully..................');
-         navigate(`/checkout?price=${reservationDetails.totalPrice}`);
+        toast('This is Checkout page ..................');
+        navigate(`/checkout?price=${reservationDetails.totalPrice}`);
+        deleteReservation();
+       
     }
 
     const back=()=>{

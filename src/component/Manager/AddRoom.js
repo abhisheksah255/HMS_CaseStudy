@@ -42,22 +42,24 @@ export default function AddRoom() {
     const [roomType, setRoomType] = useState('')
     const [roomRent, setRoomRent] = useState('')
     const [roomAvailable, setRoomAvailable] = useState('')
-    // const history=useHistory()
+    const [submitClicked, setSubmitClicked] = useState(false)  
 
     const saveRoom=(e)=>{
+      setSubmitClicked(true)
         e.preventDefault();
 
         if (roomId && roomType && roomRent && roomAvailable)
         {
             console.log(roomId,roomType,roomRent,roomAvailable);
             navigate('/manager/AllRoom')
-            toast('Room Added successfully');
+            
            
         }
         const room={roomId,roomType,roomRent,roomAvailable}
         RoomService.addRooms(room).then((response)=>{
         console.log(response.data)
         // toast('Room not Added ');
+        toast('Room Added successfully');
        
        
     }).catch(error=>{
@@ -80,15 +82,14 @@ export default function AddRoom() {
           required
           variant="outlined"
           label="Room ID"
+          // type="number"
           placeholder="Enter a Room Id"
           className={classes.id}
           value={roomId}
           color="primary"
           onChange={(e) => setRoomId(e.target.value)}
-          // error={roomId === "Room ID cannnot be null"}
-          // helperText={roomId === "" ? "Room ID should be minimum 4 digits" : " "}>
-         error={roomId===" "}
-         helperText={ roomId === "" ? "" : "Room ID should be minimum 4 digits "}
+         error={submitClicked && roomId===""}
+         helperText={ submitClicked && roomId === "" ? "" : "Room ID should be minimum 4 digits "}
         />
 
 <TextField required variant="outlined" label="Room Type" placeholder='Enter the type of room'
@@ -99,24 +100,24 @@ export default function AddRoom() {
                 // helperText={roomType === "" ? "Room type must be define " : " "}>
                 multiline  
                 row={4}
-                error={roomType===""}
-                helperText={roomType? " " : " Room type must be define"}>
+                error={submitClicked && roomType===""}
+                helperText={submitClicked && roomType ? " " : " Room type must be define"}>
             </TextField>
 
             <TextField required variant="outlined" label="Room Rent" placeholder='Enter the rent of room'
                 className={classes.rent}
                  value={roomRent} 
                  onChange={(e)=>setRoomRent(e.target.value)}
-                error={roomRent === ""}
-                helperText={roomRent === "" ? "Room rent cannnot be null!" : " "}>
+                error={submitClicked && roomRent === ""}
+                helperText={submitClicked && roomRent === "" ? "Room rent cannnot be null!" : " "}>
             </TextField>
 
             <TextField required variant="outlined" label="Room Available" placeholder='Enter the availability of room (true/false)'
                 className={classes.available}
                  value={roomAvailable} 
                  onChange={(e)=>setRoomAvailable(e.target.value)}
-                error={roomAvailable === ""}
-                helperText={roomAvailable === "" ? "Room available should be minimum 4 digits and should be either 'True' or 'False'" : " "}>
+                error={submitClicked && roomAvailable === ""}
+                helperText={submitClicked && roomAvailable === "" ? "Room available should be minimum 4 digits and should be either 'True' or 'False'" : " "}>
             </TextField>
             <br></br>
             <Button variant='contained' className=" m-4" color="secondary" onClick={saveRoom}>Submit</Button>

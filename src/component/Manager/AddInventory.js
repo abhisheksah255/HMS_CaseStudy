@@ -32,20 +32,21 @@ export default function AddInventory() {
     const [inventoryType, setInventoryType] = useState('')
     const [inventoryName, setInventoryName] = useState('')
     const [inventoryStock, setInventoryStock] = useState('')
-  
+    const [submitClicked, setSubmitClicked] = useState(false)  
+
     const saveInventory =(e)=>{
-    e.preventDefault();
+    setSubmitClicked(true)
+        e.preventDefault();
 
     if(inventoryId&&inventoryType&&inventoryName&&inventoryStock){
         console.log(inventoryId,inventoryType,inventoryName,inventoryStock)
-        toast('Inventory Added successfully');
         navigate('/manager/AllInventory')
     }
 
     const inventory={inventoryId,inventoryType,inventoryName,inventoryStock}
     InventoryService.addInventory(inventory).then((response)=>{
         console.log(response.data)
-     
+        toast('Inventory Added successfully');
     }).catch(error=>{
         console.log(error)
         toast('Incorrect Data.......');
@@ -60,30 +61,34 @@ export default function AddInventory() {
             <h1>Enter Inventory Details</h1>
            
        
-            <TextField variant="outlined" label="Inventory ID" placeholder='Enter a Inventory Id' 
+            <TextField variant="outlined" label="Inventory ID"
+            type="number"
+            placeholder='Enter a Inventory Id' 
                 className={classes.id} value={inventoryId} onChange={(e)=>setInventoryId(e.target.value)}
-                 error={inventoryId === ""}
-                helperText={inventoryId === "" ? "Empty!" : " "}>
+                 error={submitClicked && inventoryId === ""}
+                helperText={submitClicked && inventoryId === "" ? "Enter valid inventory Id like---2001,2002" : " "}>
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Inventory Type" placeholder='Enter the type of inventory'
                 className={classes.type} value={inventoryType} onChange={(e)=>setInventoryType(e.target.value)}
-                 error={inventoryType === ""}
-                helperText={inventoryType === "" ? "Empty!" : " "}>
+                 error={submitClicked && inventoryType === ""}
+                helperText={submitClicked && inventoryType === "" ? "Enter valid Inventory Type  eg--room object,kitchen object...." : " "}>
             </TextField>
             <br></br><br></br>
             <TextField variant="outlined" label="Inventory Name" placeholder='Enter the name of inventory'
                 className={classes.name} value={inventoryName} onChange={(e)=>setInventoryName(e.target.value)}
-                 error={inventoryName === ""}
-                helperText={inventoryName === "" ? "Empty!" : " "}>
+                 error={submitClicked && inventoryName === ""}
+                helperText={submitClicked && inventoryName === "" ? "Enter valid name eg--doorlock,mirror...." : " "}>
             </TextField>
             <br></br><br></br>
 
             
-           <TextField variant="outlined" label="Inventory Stock" placeholder='Enter the stock of inventory'
+           <TextField variant="outlined" label="Inventory Stock"
+           type="number"
+           placeholder='Enter the stock of inventory'
                 className={classes.stock} value={inventoryStock} onChange={(e)=>setInventoryStock(e.target.value)}
-                error={inventoryStock === ""}
-                helperText={inventoryStock === "" ? "Empty!" : " "}>
+                error={submitClicked && inventoryStock === ""}
+                helperText={submitClicked && inventoryStock === "" ? "Empty!" : " "}>
             </TextField>         
             <br></br><br></br>
             <Button variant='contained' onClick={saveInventory}>Submit</Button>

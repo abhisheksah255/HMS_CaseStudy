@@ -69,7 +69,7 @@ const Rhome = () => {
                 <div class="d-grid gap-2  mx-auto">
                   
                     <Link to="/receptionist/addGuest" className="btn btn-link">
-                      add Guest
+                      Add Guest
                     </Link>
                   
                     <Link to="/receptionist/AllGuest" className="btn btn-link">

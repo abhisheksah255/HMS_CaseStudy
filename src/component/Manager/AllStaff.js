@@ -35,7 +35,7 @@ export default function AllInventory() {
         })
     }
     const back=()=>{
-        navigate('/manager/addstaff');
+        navigate('/manager');
     }
 
     return (

@@ -30,7 +30,7 @@ const Ohome = () => {
                     <p>
                       This is the department Service which will be managed by only owner. 
                     </p>
-                   <Link to="/owner/adddepartment" className="btn btn-link">
+                   <Link to="/owner/adddepartment" className="btn m-3">
                     Add  Department
                     </Link>
                    <Link to="/owner/Alldepartment" className="btn btn-link">

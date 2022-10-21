@@ -35,7 +35,7 @@ export default function AllRooms() {
         })
     }
     const back=()=>{
-        navigate('/manager/addRoom');
+        navigate('/manager');
     }
     return (
         <>

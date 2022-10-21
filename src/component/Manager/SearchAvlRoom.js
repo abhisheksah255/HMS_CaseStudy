@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import {useNavigate} from 'react-router-dom';
 import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
@@ -15,6 +16,8 @@ const useStyles=makeStyles({
 
 export default function SearchAvlRoom() {
     
+    let navigate=useNavigate();
+
     const classes=useStyles()
     
     const [Rooms, setRooms] = useState([]);
@@ -27,9 +30,13 @@ export default function SearchAvlRoom() {
             console.log(error);
         })
     };
+
+    const back=()=>{
+        navigate('/profile');
+    }
     return (
         <>
-       
+       <Button variant='outlined'onClick={()=>back()}>Back</Button>
             <div style={{marginTop:100, maxWidth: "100%", width: "80%" }} className='container'>
            <br></br><br></br>
            <h1>Search for Rooms</h1> 
@@ -38,7 +45,7 @@ export default function SearchAvlRoom() {
             </TextField>
             <br></br><br></br>
             <Button variant='contained' onClick={()=>getAvailRooms()}>Search Room</Button>
-            <Button variant='outlined'>Clear</Button>
+            {/* <Button variant='outlined'>Clear</Button> */}
 
             <div className="container">
         <br></br>

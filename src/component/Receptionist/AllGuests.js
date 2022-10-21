@@ -25,6 +25,7 @@ export default function AllGuests() {
             console.log(error);
         })
     };
+
     const deleteGuest=(guestId)=>{
         GuestService.deleteGuest(guestId).then((response)=>{
             console.log(guestId);
@@ -69,6 +70,7 @@ export default function AllGuests() {
                                     <td>{guestDetails.address}</td>
                                     <td>
                                         <Button variant='outlined' color='secondary' onClick={()=>deleteGuest(guestDetails.guestId)}>Delete</Button>
+                                      
                                     </td>
                                 </tr>
                         )

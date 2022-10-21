@@ -36,7 +36,7 @@ export default function AllInventory() {
         })
     };
     const back=()=>{
-        navigate('/manager/addInventory');
+        navigate('/manager');
     }
     
     

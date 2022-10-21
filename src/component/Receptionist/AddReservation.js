@@ -44,6 +44,8 @@ export default function AddReservation() {
     const [checkOutDate, setCheckOutDate] = useState('')
     const [numOfGuest, setNumOfGuest] = useState('')
     const [totalPrice, setTotalPrice] = useState('')
+    const [submitClicked, setSubmitClicked] = useState(false)    
+
     let [searchParams, setSearchParams] = useSearchParams();
     const roomId= searchParams.get("id");
     const roomPrice= searchParams.get("price");
@@ -66,19 +68,24 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
     },[checkOutDate,checkInDate,numOfGuest])
 
     const saveReservation =(e)=>{
-    e.preventDefault();
+        setSubmitClicked(true)
 
+        e.preventDefault();
+
+  
     if(reservationId && roomId && guestId && checkInDate && checkOutDate && numOfGuest && totalPrice){
         console.log(reservationId,roomId,guestId,checkInDate,checkOutDate,numOfGuest,totalPrice)
-        toast('data Added successfully');
+        // toast('data Added successfully');
         navigate('/receptionist/Allreservation');
+        window.location.reload();
+      
     }
  
 
     const reservation={reservationId,roomId,guestId,checkInDate,checkOutDate,numOfGuest,totalPrice}
     ReservationService.addReservations(reservation).then((response)=>{
         console.log(response.data)
-        // toast('data Added successfully');
+        toast('data Added successfully');
         // navigate('/receptionist/Allreservation');
        
     }).catch(error=>{
@@ -93,10 +100,14 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
             <div style={{ marginTop: 100, maxWidth: "100%", width: "80%" }} className='container'>
             <br></br><br></br>
             <h1>Enter Reservation Details</h1>
-            <TextField required  variant="outlined" label="Reservation ID" placeholder='Enter a Reservation Id' 
-                className={classes.resid} value={reservationId} onChange={(e)=>setReservationId(e.target.value)}
-                error={reservationId === ""}
-                helperText={reservationId === "" ? "Enter reservation Id like 100001,100002....!" : " "}>
+            <TextField required  variant="outlined" label="Reservation ID"
+            type="number"
+            placeholder='Enter a Reservation Id' 
+                className={classes.resid}
+                value={reservationId}
+                onChange={(e)=>setReservationId(e.target.value)}
+                error={submitClicked && reservationId === ""}
+                helperText={submitClicked && reservationId === "" ? "Enter reservation Id like 10001,10002....!" : " "}>
                 {/* // helperText={reservationId ===  ("Required") ?" " :  "Enter reservation Id like 100001,100002....!"}> */}
             </TextField>
             
@@ -104,17 +115,19 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
 
  <TextField  required  variant="outlined" label="Room ID" placeholder='Enter the Room Id'
                 className={classes.rid} value={roomId} 
-                error={roomId === ""}
-                helperText={roomId === "" ? "enter valid room id  like 1001,1002....." : " "}>
+                error={submitClicked && roomId === ""}
+                helperText={submitClicked && roomId === "" ? "enter valid room id  like 1001,1002....." : " "}>
                     {/* helperText={roomId ===  ("Required") ? "":"enter valid room id  like 1001,1002....."}> */}
             </TextField>
             <br></br><br></br>
 
 
-            <TextField required  variant="outlined" label="Guest ID" placeholder='Enter the Guest Id'
+            <TextField required  variant="outlined" label="Guest ID"
+            // type="number"
+            placeholder='Enter the Guest Id'
                 className={classes.gid} value={guestId} onChange={(e)=>setGuestId(e.target.value)}
-                error={guestId === ""}
-                helperText={guestId === "" ? "Enter valid guest id like 101,102,103,104....." : " "}>
+                error={submitClicked && guestId === ""}
+                helperText={submitClicked && guestId === "" ? "Enter valid guest id like 1,2,3,4....." : " "}>
                 {/*   helperText={guestId ===  ("Required") ?  "": "Enter valid guest id like 101,102,103,104....."}> */}
             </TextField>
             <br></br><br></br>
@@ -125,8 +138,8 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
                 defaultValue="mm-dd-yyyy"
                 InputLabelProps={{shrink: true}}
                 onChange={(e)=>setCheckInDate(e.target.value)}
-                error={checkInDate === ""}
-                helperText={checkInDate === "" ? "Empty!" : " "}>
+                error={submitClicked && checkInDate === ""}
+                helperText={submitClicked && checkInDate === "" ? "Empty!" : " "}>
                 {/* helperText={checkOutDate ===  ("Required") ? " ": "Empty!"}> */}
             </TextField>
             <br></br><br></br>
@@ -136,8 +149,8 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
                 defaultValue="dd-mm-yyyy"
                  InputLabelProps={{shrink: true }}
                 onChange={(e)=>setCheckOutDate(e.target.value)}
-                error={checkOutDate === ""}
-                helperText={checkOutDate === "" ? "Empty!" : " "}>
+                error={submitClicked && checkOutDate === ""}
+                helperText={submitClicked && checkOutDate === "" ? "Empty!" : " "}>
                 {/* helperText={checkOutDate ===  ("Required") ? "" :"Empty!"}> */}
             </TextField>
             <br></br><br></br>
@@ -147,8 +160,8 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
             label="Number of Guest" placeholder='Enter the number of guest'
                 className={classes.numguest} value={numOfGuest} 
                 onChange={(e)=>setNumOfGuest(e.target.value)}
-                error={numOfGuest === ""}
-                helperText={numOfGuest === "" ? "Empty!" : " "}>
+                error={submitClicked && numOfGuest === ""}
+                helperText={submitClicked && numOfGuest === "" ? "Empty!" : " "}>
                     {/* helperText={numOfGuest === ("Required")? "" : "Empty!"}> */}
             </TextField>
             
@@ -157,8 +170,8 @@ setTotalPrice(roomPrice*diffDays*numOfGuest)
             <h4>RoomPrice*Number Of Guest*(CheckOutDate-CheckInDate)={totalPrice}</h4>
             <TextField  required  variant="outlined" label="Total Price" placeholder='Enter the total price'
                 className={classes.price} value={totalPrice} onChange={(e)=>setTotalPrice(e.target.value)}
-                error={totalPrice === ""}
-                helperText={totalPrice === totalPrice ? "Empty!" : " "}>
+                error={submitClicked && totalPrice === ""}
+                helperText={submitClicked && totalPrice === totalPrice ? "Empty!" : " "}>
                          {/* helperText={totalPrice === ("Required")? "" : "Empty!"}> */}
             </TextField>
             <br></br><br></br>

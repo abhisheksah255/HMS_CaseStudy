@@ -43,11 +43,12 @@ const [employeeEmail,setEmployeeEmail]=useState('')
 const [employeeGender,setEmployeeGender]=useState('')
 const [employeePost,setEmployeePost]=useState('')
 const [employeeSalary,setEmployeeSalary]=useState('')
-
+const [submitClicked, setSubmitClicked] = useState(false)    
    
    
 
     const saveStaff =(e)=>{
+        setSubmitClicked(true)
     e.preventDefault();
 
     if(employeeId&&employeeName&&employeeAddress&&employeeEmail&&employeeGender&&employeePost&&employeeSalary){
@@ -75,21 +76,25 @@ const [employeeSalary,setEmployeeSalary]=useState('')
             <h1 className='text-center'>Enter Staff Details</h1>
             <br></br><br></br>
 
-<TextField variant="outlined" label="Employee ID" placeholder='Enter a Employee Id' 
+<TextField variant="outlined" label="Employee ID" 
+type="number"
+placeholder='Enter a Employee Id' 
                 className={classes.id} 
                 value={employeeId} 
                 onChange={(e)=>setEmployeeId(e.target.value)}
-                error={employeeId === ""}
-                helperText={employeeId === "" ? "Empty!" : " "}>
+                error={submitClicked && employeeId === ""}
+                helperText={submitClicked && employeeId === "" ? "Empty!" : " "}>
             </TextField>
             <br></br><br></br>
             
-            <TextField variant="outlined" label="Name" placeholder='Enter the Employee Name' 
+            <TextField variant="outlined" label="Name"
+            type="text"
+            placeholder='Enter the Employee Name' 
                 className={classes.name}
                  value={employeeName}
                   onChange={(e)=>setEmployeeName(e.target.value)}
-                error={employeeName === ""}
-                helperText={employeeName === "" ? "Enter name of the Employee..!" : " "}>
+                error={submitClicked && employeeName === ""}
+                helperText={submitClicked && employeeName === "" ? "Enter name of the Employee..!" : " "}>
             </TextField>
             <br></br><br></br>
             
@@ -97,17 +102,18 @@ const [employeeSalary,setEmployeeSalary]=useState('')
                 className={classes.address} 
                 value={employeeAddress} 
                 onChange={(e)=>setEmployeeAddress(e.target.value)}
-                error={employeeAddress === ""}
-                helperText={employeeAddress === "" ? "Enter Address....!" : " "}>
+                error={submitClicked && employeeAddress === ""}
+                helperText={submitClicked && employeeAddress === "" ? "Enter Address....!" : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Email" placeholder='Enter the Employee Email' 
+            <TextField variant="outlined" label="Email"
+            type="email" placeholder='Enter the Employee Email' 
                 className={classes.email} 
                 value={employeeEmail}
                  onChange={(e)=>setEmployeeEmail(e.target.value)}
-                error={employeeEmail ===""}
-                helperText={employeeEmail === "" ? "enter valid email like abhi@gmail.com!" : " "}>
+                error={submitClicked && employeeEmail ===""}
+                helperText={submitClicked && employeeEmail === "" ? "enter valid email like abhi@gmail.com!" : " "}>
             </TextField>
             <br></br><br></br>
 
@@ -115,8 +121,8 @@ const [employeeSalary,setEmployeeSalary]=useState('')
                 className={classes.gender}
                  value={employeeGender}
                   onChange={(e)=>setEmployeeGender(e.target.value)}
-                error={employeeGender === ""}
-                helperText={employeeGender === "" ? "Empty!" : " "}>
+                error={submitClicked && employeeGender === ""}
+                helperText={submitClicked && employeeGender === "" ? "Male / Female......" : " "}>
             </TextField>
             <br></br><br></br>
 
@@ -124,17 +130,17 @@ const [employeeSalary,setEmployeeSalary]=useState('')
                 className={classes.post}
                  value={employeePost}
                   onChange={(e)=>setEmployeePost(e.target.value)}
-                error={employeePost === ""}
-                helperText={employeePost === "" ? "Empty!" : " "}>
+                error={submitClicked && employeePost === ""}
+                helperText={submitClicked && employeePost === "" ? "Accountant,Plumber....." : " "}>
             </TextField>
             <br></br><br></br>
 
-            <TextField variant="outlined" label="Salary" placeholder='Enter the Employee Salary' 
+            <TextField variant="outlined" label="Salary" type="number" placeholder='Enter the Employee Salary' 
                 className={classes.salary}
                  value={employeeSalary}
                   onChange={(e)=>setEmployeeSalary(e.target.value)}
-                error={employeeSalary === ""}
-                helperText={employeeSalary === "" ? "Empty!" : " "}>
+                error={submitClicked && employeeSalary === ""}
+                helperText={submitClicked && employeeSalary === "" ? "Fill the salary like--2300,4320,12000....." : " "}>
             </TextField>
 
             <br></br><br></br>
